@@ -1,6 +1,6 @@
 ## About CheatSheet App
 
-This project is a cheatsheet app made for myself. It helps me to quickly check Linux commands for installing and configuring PHP, Apache, NGNX, Django, FastAPI etc., without always relying on Google searches and LLMs.
+This project is a cheatsheet app made for myself. It helps me to quickly check Linux commands for installing and configuring PHP, Apache, NGNX, Django, FastAPI etc., without always relying on Google searches and LLMs. The project uses PHP / Laravel / Filament.
 
 ## Installation
 
@@ -35,3 +35,14 @@ php artisan migrate --seed
 
 # run the Laravel dev server if running on localhost
 php artisan serve
+
+# Run the following Filament commands
+php artisan filament:install --panels
+
+# create a Filament user
+php artisan make:filament-user
+
+# after this, you will be able to login at: http://127.0.0.1:8000/admin
+
+# if needed, publish Filament config
+php artisan vendor:publish --tag=filament-config
