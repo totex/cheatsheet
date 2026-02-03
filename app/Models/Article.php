@@ -14,6 +14,9 @@ class Article extends Model
         'sort_order',
         'is_published',
     ];
+
+    protected $with = ['section'];
+    
     public function section()
     {
         return $this->belongsTo(Section::class);

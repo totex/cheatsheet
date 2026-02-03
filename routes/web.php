@@ -9,9 +9,18 @@ Route::get('/', function () {
         ->orderBy('sort_order')
         ->get();
     return view('index', compact('sections'));
-});
+})->name('cheatsheets.index');
 
-Route::get('/docs/{section:slug}/{article:slug}', function (Section $section, Article $article) {
+
+// TODO: Refactor to a controller
+Route::get('/cheatsheets/{section:slug}/{article:slug}', function (
+    Section $section,
+    Article $article
+) {
     abort_unless($article->section_id === $section->id, 404);
-    return view('docs.article', compact('section', 'article'));
-});
+
+    return view('cheatsheets.show', [
+        'sections' => Section::with('articles')->get(),
+        'article' => $article->load('blocks'),
+    ]);
+})->name('cheatsheets.show');

@@ -13,9 +13,10 @@ class ArticleBlocksTable
     public static function configure(Table $table): Table
     {
         return $table
+            ->paginated([25])
             ->columns([
                 TextColumn::make('article.breadcrumb') // see getBreadcrumbAttribute in Article model
-                    ->label('Article tree')
+                    ->label('Article Blocks')
                     ->sortable(),
                 TextColumn::make('title')
                     ->searchable(),

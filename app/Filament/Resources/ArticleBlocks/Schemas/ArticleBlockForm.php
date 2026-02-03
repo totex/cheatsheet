@@ -18,7 +18,11 @@ class ArticleBlockForm
                     ->relationship('article', 'title')
                     ->searchable()
                     ->preload()
-                    ->required(),
+                    ->required()
+                    ->getOptionLabelFromRecordUsing(callback: fn ($record): string =>
+                        explode(" ", $record->section->title)[0] . ' > ' . $record->title
+                        // $record->section->title . ' > ' . $record->title
+                    ),
                 TextInput::make('title')
                     ->required(),
                 // TextInput::make('type')
