@@ -17,16 +17,22 @@ class ArticleSeeder extends Seeder
             [
                 'section_id' => 1,
                 'title' => 'Service Management',
+                'sub_title' => 'Service Management commands for Apache',
                 'slug' => 'service-management',
+                'content' => 'here comes the json content',
                 'sort_order' => 1,
                 'is_published' => true,
+                'is_public' => false,
             ],
             [
                 'section_id' => 1,
                 'title' => 'Configurations',
-                'slug' => 'configuring-virtual-hosts',
+                'sub_title' => 'Best Practices',
+                'slug' => 'configurations',
+                'content' => 'here comes the json content',
                 'sort_order' => 2,
                 'is_published' => true,
+                'is_public' => false,
             ],
             // [
             //     'section_id' => 2,

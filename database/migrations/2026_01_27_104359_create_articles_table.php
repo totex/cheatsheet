@@ -15,10 +15,12 @@ return new class extends Migration
             $table->id();
             $table->foreignId('section_id')->constrained()->cascadeOnDelete();
             $table->string('title');
+            $table->string('sub_title');
             $table->string('slug')->unique();
-            // $table->longText('content');
+            $table->json('content');
             $table->integer('sort_order')->default(0);
             $table->boolean('is_published')->default(true);
+            $table->boolean('is_public')->default(true);
             $table->timestamps();
         });
     }

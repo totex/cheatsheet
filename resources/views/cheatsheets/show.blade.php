@@ -6,7 +6,40 @@
             {{ $article->title }}
         </h1>
 
-        @foreach($article->blocks as $block)
+        <h2 class="text-1xl font-bold mb-6 text-slate-400">
+            {{ $article->sub_title }}
+        </h2>
+
+        @foreach($article->content as $block)
+            <section class="mb-10">
+                <h2 class="text-2xl font-semibold mb-3">
+                    {{ $block['content_title'] ?? 'No Title' }}
+                </h2>
+                <article class="bg-slate-900 border border-slate-800 rounded-lg p-4 font-mono text-sm">
+                    {!! Str::markdown($block['content_body']) !!}
+                    {{-- {!! str($block['content_body'] ?? 'No content available')->markdown()->sanitizeHtml() !!} --}}
+                </article>
+            </section>
+        @endforeach
+
+        {{-- <section class="mb-10">
+            <div class="bg-slate-900 border border-slate-800 rounded-lg p-4 font-mono text-md">
+                
+                {{ $article->content_title ?? 'no content available' }}
+                {{ $article->content_body ?? 'no content available' }}
+
+                {!! str($article->content)->markdown()->sanitizeHtml() !!}
+
+                {!! Str::markdown($article->content ?? 'no content available',
+                [
+                    'renderer' => [
+                        'soft_break' => "<br/ >\n",
+                    ],
+                ]) !!}
+            </div>
+        </section> --}}
+
+        {{-- @foreach($article->blocks as $block)
             <section class="mb-10">
                 <h2 class="text-2xl font-semibold mb-3">
                     {{ $block->title }}
@@ -22,7 +55,7 @@
                     </div>
                 @endif
             </section>
-        @endforeach
+        @endforeach --}}
     </div>
 @endsection
 

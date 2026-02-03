@@ -9,23 +9,29 @@ class Article extends Model
     protected $fillable = [
         'section_id',
         'title',
+        'sub_title',
         'slug',
         'content',
         'sort_order',
         'is_published',
+        'is_public',
     ];
 
-    protected $with = ['section'];
+    protected $casts = [
+        'content' => 'array',
+    ];
+
+    // protected $with = ['section'];
     
     public function section()
     {
         return $this->belongsTo(Section::class);
     }
 
-    public function blocks()
-    {
-        return $this->hasMany(ArticleBlock::class)->orderBy('sort_order');
-    }
+    // public function blocks()
+    // {
+    //     return $this->hasMany(ArticleBlock::class)->orderBy('sort_order');
+    // }
 
     public function getBreadcrumbAttribute(): string
     {

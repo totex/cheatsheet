@@ -21,6 +21,6 @@ Route::get('/cheatsheets/{section:slug}/{article:slug}', function (
 
     return view('cheatsheets.show', [
         'sections' => Section::with('articles')->get(),
-        'article' => $article->load('blocks'),
+        'article' => $article,
     ]);
 })->name('cheatsheets.show');
