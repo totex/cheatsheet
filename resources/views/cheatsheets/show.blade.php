@@ -12,10 +12,10 @@
 
         @foreach($article->content as $block)
             <article class="mb-10">
-                <h2 class="text-2xl font-semibold mb-3">
+                <h2 class="text-2xl font-semibold mb-3 text-slate-400">
                     {{ $block['content_title'] ?? 'No Title' }}
                 </h2>
-                <div class="bg-slate-900 border border-slate-800 rounded-lg p-4 font-mono text-sm">
+                <div class="bg-slate-900 border border-slate-800 rounded-lg p-4 font-mono text-lg text-green-400">
                     {!! Str::markdown($block['content_body']) !!}
                     {{-- {!! str($block['content_body'] ?? 'No content available')->markdown()->sanitizeHtml() !!} --}}
                 </div>
